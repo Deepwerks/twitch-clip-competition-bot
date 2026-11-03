@@ -11,8 +11,11 @@ RUN corepack enable
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 RUN pnpm install --frozen-lockfile
-RUN pnpm run build
+
+COPY . .
+
 ENV NODE_ENV=production
+RUN pnpm run build
 
 EXPOSE 3000
 CMD ["pnpm", "run", "start"]

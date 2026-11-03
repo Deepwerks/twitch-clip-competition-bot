@@ -1,0 +1,16 @@
+build
+
+node_modules
+
+.env
+.env.docker
+dev.env
+
+*.tsbuildinfo
+
+data/config.json
+
+logs
+
+.idea
+.codex

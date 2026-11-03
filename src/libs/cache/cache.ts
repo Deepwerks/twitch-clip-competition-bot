@@ -7,7 +7,7 @@ import CacheOptions from './interfaces/cache-options.interface';
 import { ConsumeCounterResult } from './interfaces/consume-counter.interface';
 
 export default class RedisCache implements CacheAdapter {
-  private readonly appName: string = 'deadlockassistant-bot';
+  private readonly appName: string = 'twitch-clip-competition-bot';
   private namespace: string;
   private version: string;
   private redis: Redis;

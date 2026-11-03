@@ -1,13 +1,4 @@
-import {
-  ButtonBuilder,
-  ButtonStyle,
-  ChatInputCommandInteraction,
-  ContainerBuilder,
-  MessageFlags,
-  PermissionsBitField,
-  SectionBuilder,
-  TextDisplayBuilder,
-} from 'discord.js';
+import { ChatInputCommandInteraction, PermissionsBitField } from 'discord.js';
 import { Command } from '../../../classes/command';
 import { CustomClient } from '../../../classes/custom-client';
 import CommandCategory from '../../../types/command-category.enum';
@@ -22,7 +13,7 @@ export default class Ping extends Command {
       dm_permission: true,
       cooldown: 3,
       options: [],
-      dev: false,
+      dev: true,
     });
   }
 

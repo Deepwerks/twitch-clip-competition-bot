@@ -14,6 +14,7 @@ import { Event } from '../../../classes/event';
 import { ICommand } from '../../../interfaces/command.interface';
 import { logger } from '../../../../../libs/logger';
 import { config } from '../../../../../core/config';
+import { twitchCompetitionScheduler } from '../../../../schedulers';
 
 export default class Ready extends Event {
   constructor(client: CustomClient) {
@@ -27,6 +28,8 @@ export default class Ready extends Event {
   async execute() {
     logger.discord.info(`${this.client.user?.displayName} is now ready!`);
     await this.registerSlashCommands();
+
+    twitchCompetitionScheduler.start();
   }
 
   private async registerSlashCommands() {

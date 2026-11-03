@@ -12,7 +12,7 @@ export const runDatabaseMigrations = async () => {
   const migrationClient = postgres(config.DATABASE_URL, { max: 1 });
   try {
     await migrate(drizzle(migrationClient), {
-      migrationsFolder: path.resolve(__dirname, '../../../migrations'),
+      migrationsFolder: path.resolve(process.cwd(), 'migrations'),
     });
   } catch (error) {
     logger.database.info('Failed to run database migrations', { error });

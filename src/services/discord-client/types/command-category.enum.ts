@@ -1,9 +1,5 @@
 enum CommandCategory {
-  Player = 'Player',
-  Game = 'Game',
-  Analytics = 'Analytics',
-  Notifications = 'Notifications',
-  Settings = 'Settings',
+  ClipCompetition = 'ClipCompetition',
   Utility = 'Utility',
 }
 

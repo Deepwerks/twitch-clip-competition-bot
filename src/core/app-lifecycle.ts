@@ -1,4 +1,6 @@
 import { logger } from '../libs/logger';
+import { redisProvider } from '../libs/redis/redis';
+import { twitchCompetitionScheduler } from '../services/schedulers';
 
 type ExitFn = (code?: number) => never;
 
@@ -7,8 +9,12 @@ type AppLifecycleDeps = {
   exit?: ExitFn;
 };
 
-const exitInProduction = (code: 0 | 1, deps: AppLifecycleDeps = {}): void => {
+const exitInProduction = async (code: 0 | 1, deps: AppLifecycleDeps = {}) => {
   const exit = deps.exit ?? process.exit.bind(process);
+
+  await redisProvider.close();
+  twitchCompetitionScheduler.stop();
+
   exit(code);
 };
 

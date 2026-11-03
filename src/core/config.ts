@@ -14,6 +14,22 @@ const envSchema = z.object({
   DATABASE_URL: z.string().optional(),
   REDIS_URL: z.string().optional(),
   TOPGG_TOKEN: z.string().optional(),
+  TWITCH_CLIENT_ID: z.string(),
+  TWITCH_CLIENT_SECRET: z.string(),
+  TWITCH_CLIENT_BASE_URL: z.string().default('https://api.twitch.tv/helix'),
+  TWITCH_COMPETITION_UPDATE_INTERVAL: z.coerce
+    .number()
+    .int()
+    .positive()
+    .default(6 * 60 * 60 * 1000),
+
+  TWITCH_COMPETITION_LOCK_KEY: z.string().default('twitch-competition:scheduler:lock'),
+
+  TWITCH_COMPETITION_LOCK_TTL: z.coerce
+    .number()
+    .int()
+    .positive()
+    .default(60 * 60),
 });
 
 const parsed = envSchema.safeParse(process.env);

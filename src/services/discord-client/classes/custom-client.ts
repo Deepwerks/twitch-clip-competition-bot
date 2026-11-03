@@ -51,14 +51,10 @@ export class CustomClient extends Client implements ICustomClient {
     this.cooldowns = new Collection();
     this.developmentMode = config.NODE_ENV === 'development';
     this.requiredPermissions = [
+      PermissionsBitField.Flags.ViewChannel,
       PermissionsBitField.Flags.SendMessages,
       PermissionsBitField.Flags.EmbedLinks,
-      PermissionsBitField.Flags.AttachFiles,
       PermissionsBitField.Flags.ReadMessageHistory,
-      PermissionsBitField.Flags.UseApplicationCommands,
-      PermissionsBitField.Flags.ManageThreads,
-      PermissionsBitField.Flags.CreatePrivateThreads,
-      PermissionsBitField.Flags.SendMessagesInThreads,
     ];
 
     this.initialized = false;

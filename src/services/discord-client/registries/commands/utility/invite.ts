@@ -22,7 +22,7 @@ export default class Invite extends Command {
       dm_permission: true,
       cooldown: 3,
       options: [],
-      dev: false,
+      dev: true,
     });
   }
 
